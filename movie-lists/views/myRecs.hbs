@@ -1,0 +1,24 @@
+{{#if errMsg}}
+<div class="container">
+	<div class="col-lg-4 col-md-4 col-sm-3 hidden-xs">
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 errMsg text-center bg-danger">
+		{{errMsg}}
+	</div>
+</div>
+{{/if}}
+
+<div class="container" id="allMyLists">
+	{{#each fullLists}}
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 listWrapper">
+			<div class="well list">
+				<a href="/myRecs/list/{{list.slug}}" class="listLink">
+					<h4 class="text-center">{{list.name}}</h4>
+				</a>
+				<div class="listFromName text-center">
+					List from:{{user}}
+				</div>
+			</div>
+		</div>
+	{{/each}}
+</div>

@@ -1,0 +1,23 @@
+<div class="container" id="recList">
+	<h3 class="text-center">{{list.name}}</h3>
+	<h5 class="text-center">List created by: {{list.madeBy}}</h5>
+	{{#each fullMovies}}
+		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 movieWrapper">
+			<div class="well movie" style="position:relative;">
+				<form method="POST" action="/myMovies/addWatchedFromRecList">
+					<input type="hidden" name="movieID" value="{{movie._id}}">
+					<input type="hidden" name="listSlug" value="{{listSlug}}">
+					<button type="submit" class="btn btn-default btn-sm seenIt" style="position:absolute; right:5px; top:5px;">I've seen this!</button>
+				</form>
+				<div class="movieImg" style="background-image: url('{{movie.image}}')"></div>
+				<div class="movieTitle text-center">
+					{{movie.title}}
+				</div>
+				<div class="recRating text-center">
+					{{author}}'s rating: {{recRating.rating}}/5
+				</div>
+				<div class="text-center"><em>(0 -> not yet rated)</em></div>
+			</div>
+		</div>
+	{{/each}}
+</div>

@@ -1,0 +1,46 @@
+<div class="container">
+	<div class="col-lg-1 col-md-1 hidden-sm hidden-xs">
+	</div>
+	<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 well">
+		{{#if movie}}
+			<form method="POST" action="/myMovies/chooseMovie">
+				<fieldset class="form-group">
+					<legend>Which film did you mean...</legend>
+					{{#each movie}}
+						<div class="form-check col-lg-3 col-md-3 col-sm-4 col-xs-12 movieOptWrapper">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 well movieOpt">
+								<label class="form-check-label">
+									<div class="movieOptImg" style="background-image: url('{{img}}')"></div>
+									<div class="text-center movieOptTitle">
+										{{title}}
+									</div>
+									<input class="movieOptInput" type="radio" name="id" value="{{id}}">
+								</label>
+							</div>
+						</div>
+					{{/each}}
+				</fieldset>
+				<a href="/myMovies" class="pull-left"><button type="button" class="btn" id="cancelBTN">
+					<span class="glyphicon glyphicon-menu-left"></span>
+					 Cancel
+				</button></a>
+				<button type="submit" class="btn pull-right" id="addMovieBTN">
+					<span class="glyphicon glyphicon-film"></span>
+					 Add movie 
+					<span class="glyphicon glyphicon-menu-right"></span>
+				</button>
+			</form>
+		{{else}}
+			<div class="text-center bg-danger">
+				Sorry, no films were found with that title.
+			</div>
+			<br>
+			<div class="text-center">
+			<a href="/myMovies" class="btn btn-default">
+				<span class="glyphicon glyphicon-arrow-left"></span>
+				Back to myMovies
+			</a>
+			</div>
+		{{/if}}
+	</div>
+</div>

@@ -1,0 +1,193 @@
+.hidden {
+	display: none;
+}
+.container-fluid {
+	padding: 0;
+}
+#head {
+	background-color: black;
+}
+h1 {
+	margin-bottom: 20px;
+}
+.nav, .navbar-header {
+	width: 100%;
+	margin: 0;
+}
+.nav > li {
+	width: 25%;
+	text-align: center;
+}
+#small-nav ul > li {
+	width: 100%;
+	text-align: center;
+}
+.well h4 {
+	margin-top: 0;
+}
+/* under construction */
+#unCons {
+	max-width: 100%;
+}
+#siteName {
+	text-decoration: none;
+	color: white;
+}
+
+/* chooseMovie PAGE STYLES */
+.movieOptImg, .movieImg /* ** also myMovies ** */ {
+	width: 100%;
+    background-position: center !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+}
+.movieOptWrapper {
+	height: 340px;
+	margin-bottom: 20px;
+}
+.movieOpt, .form-check-label {
+	height: 100%;
+	width: 100%;
+}
+.movieOptInput {
+	position: absolute;
+	bottom: 20px;
+	left: calc(50% - 6px);
+}
+.movieOptImg {
+	margin-bottom: 5px;
+    height: 85%;
+}
+.movieOptTitle {
+	font-size: 15px;
+	font-weight: bold;
+	overflow: scroll;
+	white-space: nowrap;
+}
+#cancelBTN {
+	text-decoration: none;
+	color: #333333 !important; /* color of neighboring button */
+}
+
+/* myMovies PAGE STYLES */
+form {
+	text-align: center;
+}
+.moreButton {
+	color: white;
+	background: black;
+}
+#myMoviesList .movieWrapper, #recListExt .movieWrapper {
+	margin-bottom: 25px;
+	height: 380px;
+}
+#myMoviesList .movie, #recListExt .movie {
+	height: 100%;
+	width: 100%;
+}
+#myMoviesList .movieImg, #recListExt .movieImg {
+    height: 90%;
+}
+#myMoviesList .movieTitle, #recListExt .movieTitle {
+	padding-top: 10px;
+	font-weight: 900;
+	font-size: 125%;
+	overflow: scroll;
+	white-space: nowrap;
+}
+#myMoviesList .moreButton {
+	position: absolute;
+	right: 20px;
+	top: 5px;
+}
+
+/* movie PAGE STYLES */
+#movieTagline {
+	font-size: 110%;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+#moviePoster {
+	margin-top: 15px;
+}
+#moviePoster img {
+	width: 100%;
+}
+#movieTable {
+	margin: 20px 0px;
+}
+#movieTable table {
+	margin: 0;
+}
+.userRating {
+	margin-bottom: 10px;
+	font-size: 20px;
+}
+#ratingForm > input {
+	margin-top: 8px !important;
+}
+
+/* myLists and myRecs PAGE STYLES */
+.newListForm {
+	text-align: center;
+}
+.errMsg {
+	margin-bottom: 10px;
+}
+.sharedWithNames, .listFromName {
+	overflow: scroll;
+	white-space: nowrap;
+}
+
+/* extLink unfoundList PAGE STYLES */
+#unfoundList {
+	margin-top: 20px;
+	padding-bottom: 10px;
+}
+#emoji {
+	font-size: 2em;
+}
+
+/* login/newUser PAGE STYLES */
+.switchForm {
+	margin-top: 15px;
+}
+
+/* recList and list PAGE STYLES */
+#listPage .movieWrapper, #recList .movieWrapper {
+	margin-bottom: 25px;
+	height: 380px;
+}
+#listPage .movie, #recList .movie {
+	height: 100%;
+	width: 100%;
+}
+#listPage .movieImg, #recList .movieImg {
+    height: 80%;
+}
+#listPage .movieTitle, #recList .movieTitle {
+	padding: 5px 0px 10px 0px;
+	font-weight: 900;
+	font-size: 125%;
+	overflow: scroll;
+	white-space: nowrap;
+}
+#listPage .moreButton, #recList .moreButton {
+	position: absolute;
+	right: 20px;
+	top: 5px;
+}
+#listPage #inSiteShare {
+	margin-bottom: 10px;
+}
+#listPage #sharing {
+	margin: 10px;
+}
+
+
+
+
+
+
+
+

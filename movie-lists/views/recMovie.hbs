@@ -1,0 +1,73 @@
+<div class="container">
+	<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12" id="moviePoster">
+		<img src="{{movie.image}}">
+	</div>
+	<div class="col-lg-8 col-md-8 col-sm-7 col-xs-12">
+		<h2 class="text-center">{{movie.title}}</h2>
+		{{#if movie.tagline}}
+			<div class="text-center" id="movieTagline">
+				<em>"{{movie.tagline}}"</em>
+			</div>
+		{{/if}}
+		<div class="row" id="movieTable">
+			<div class="col-lg-2 col-md-2 col-sm-1 hidden-xs">
+			</div>
+			<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
+				<table id="movieInfo" class="table table-striped">
+					{{#each movie.director}}
+						<tr>
+							<th>Director:</th>
+							<td class="text-right">
+								{{first}} {{last}}
+							</td>
+						</tr>
+					{{/each}}
+					<tr>
+						<th>Release Date:</th>
+						<td class="text-right">
+							{{printableDate}}
+						</td>
+					</tr>
+					<tr>
+						<th>Runtime:</th>
+						<td class="text-right">{{movie.runtime}} minutes</td>
+					</tr>
+					<tr>
+						<th>Genres:</th>
+						<td class="text-right">
+							{{#each movie.genre}}
+								{{.}},
+							{{/each}}
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="row" id="movieRating">
+			<div class="col-lg-3 col-md-3 col-sm-2 col-xs-1">
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-8 col-xs-10 well text-center">
+				{{#if noRating}}
+					<div class="noRating" style="color:grey">
+						You haven't rated this movie yet
+					</div>
+				{{else}}
+					<div class="userRating">
+						Your rating: {{userRating}}/5
+					</div>
+				{{/if}}
+				<form method="POST" id="ratingForm" action="{{movie.slug}}/rateMovie">
+					<label for="ratingOptions">Rate this film (out of 5)</label>
+					<select name="rating" class="form-control" id="ratingOptions">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+					<input type="submit" value="Submit/Update rating" class="btn btn-default btn-sm">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

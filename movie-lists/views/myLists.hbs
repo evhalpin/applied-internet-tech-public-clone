@@ -1,0 +1,50 @@
+{{#if errMsg}}
+<div class="container">
+	<div class="col-lg-4 col-md-4 col-sm-3 hidden-xs">
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 errMsg text-center bg-danger">
+		{{errMsg}}
+	</div>
+</div>
+{{/if}}
+
+<div class="container">
+	<div class="col-lg-4 col-md-4 col-sm-3 hidden-xs">
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 well newListForm">
+		<h4 id="newListLabel">
+			New List
+		</h4>
+		<form method="POST" action="/myLists/newList">
+			<div class="form-group">
+				<label for="nameInput">List Name</label>
+				<input id="nameInput" name="name" type="text">
+			</div>
+			<button type="submit" class="btn" id="createListBTN">
+				<span class="glyphicon glyphicon-list-alt"></span>
+				Create list
+			</button>
+		</form>
+	</div>
+</div>
+
+<div class="container" id="allMyLists">
+	{{#if fullLists}}
+		{{#each fullLists}}
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 listWrapper">
+				<div class="well list">
+					<a href="/myLists/list/{{list.slug}}" class="listLink">
+						<h4 class="text-center">{{list.name}}</h4>
+					</a>
+					<div class="sharedWithNames text-center">
+						Shared with:{{users}}
+					</div>
+				</div>
+			</div>
+		{{/each}}
+	{{else}}
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center bg-danger emptyCol">
+			Looks like you haven't created any recommendation lists yet!
+		</div>
+	{{/if}}
+</div>

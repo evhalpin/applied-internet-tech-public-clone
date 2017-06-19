@@ -1,0 +1,14 @@
+<div class="container" id="recListExt">
+	<h3 class="text-center">{{list.name}}</h3>
+	<h5 class="text-center">List created by: {{list.madeBy}}</h5>
+	{{#each movies}}
+		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 movieWrapper">
+			<div class="well movie">
+				<div class="movieImg" style="background-image: url('{{image}}')"></div>
+				<div class="movieTitle text-center">
+					{{title}}
+				</div>
+			</div>
+		</div>
+	{{/each}}
+</div>

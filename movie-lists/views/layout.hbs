@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Watchlist</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <meta property="og:type"          content="website" />
+	<meta property="og:title"         content="The Watchlist" />
+	<meta property="og:description"   content="Movie recommendations made easy!" />
+	<!-- <meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="/stylesheets/style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="/javascripts/frontend.js"></script>
+  </head>
+  <body>
+	  <script>
+		window.fbAsyncInit = function() {
+			FB.init({
+			appId      : '371266903212432',
+			xfbml      : true,
+			version    : 'v2.8'
+			});
+		};
+
+		(function(d, s, id){
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+	<div class="container-fluid">
+		<div id="head" class="row">
+			{{#if user}}
+			<div class="col-lg-10 col-md-10 col-sm-11 col-xs-10 text-center">
+			{{else}}
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+			{{/if}}
+			<a id="siteName" href="/"><h1><span class="glyphicon glyphicon-film hidden-xs"></span>&nbsp&nbsp&nbspThe Watchlist&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-folder-open hidden-xs"></span></h1></a>
+			</div>
+			{{#if user}}
+			<div class="col-lg-2 col-md-2 col-sm-1 col-xs-2">
+				<div class="dropdown pull-right">
+					<button class="btn btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
+					<span class="hidden-sm hidden-xs">
+						<span class="glyphicon glyphicon-user"></span> {{user.username}}
+					</span>
+					<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu pull-right">
+						<li class="dropdown-header hidden-md hidden-lg"><span class="glyphicon glyphicon-user"></span> {{user.username}}</li>
+						<li><a href="/logout">
+						<span class="glyphicon glyphicon-log-out"></span>
+						Logout</a></li>
+					</ul>
+				</div>
+			</div>
+			{{/if}}
+		</div>
+	</div>
+	{{#if user}}
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div id="small-nav" class="visible-xs">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+					<span class="glyphicon glyphicon-menu-hamburger"></span>
+					</button>
+					<span class="navbar-brand">Take me to...</span>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="/">home</a></li>
+						<li><a href="/myMovies">myMovies</a></li>
+						<li><a href="/myLists">myLists</a></li>
+						<li><a href="/myRecs">myRecs</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="hidden-xs">
+				<ul class="nav navbar-nav">
+					<li><a href="/">home</a></li>
+					<li><a href="/myMovies">myMovies</a></li>
+					<li><a href="/myLists">myLists</a></li>
+					<li><a href="/myRecs">myRecs</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	{{/if}}
+	{{{body}}}
+	<br><br><br>
+  </body>
+</html>

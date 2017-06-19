@@ -1,0 +1,17 @@
+<br>
+<div class="container">
+	<div class="col-lg-4 col-md-4 col-sm-3 hidden-xs">
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 well text-center">
+		{{#if user}}
+			<h4 class="text-center">Welcome {{user.username}}</h4>
+			<p>You can view and add to your watched movies list here: <a href="/myMovies">myMovies</a></p>
+			<p>You can view your created recommendation lists and create new recommendation lists here: <a href="/myLists">myLists</a></p>
+			<p>You can view recommendation lists that other users have shared with you here: <a href="/myRecs">myRecs</a></p>
+		{{else}}
+			<h4 class="text-center">Welcome to The Watchlist!</h4>
+			<p class="text-center">To get started, please:</p>
+			<p class="text-center"><a href="/newUser">register</a> or <a href="/login">login</a></p>
+		{{/if}}
+	</div>
+</div>

@@ -1,0 +1,41 @@
+<div class="container">
+	<div class="col-lg-4 col-md-4 col-sm-3 hidden-xs">
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 well">
+		<h4 id="newListLabel" style="text-align: center;">
+			New List
+		</h4>
+		<form method="POST" action="/myMovies/findMovie">
+			<div class="form-group">
+				<label for="titleInput">Movie Title</label>
+				<input id="titleInput" name="title" type="text">
+			</div>
+			<button type="submit" class="btn" id="findMovieBTN">
+				<span class="glyphicon glyphicon-search"></span>
+				Find Movie
+			</button>
+		</form>
+	</div>
+</div>
+
+<div class="container" id="myMoviesList">
+	{{#if watched}}
+		{{#each watched}}
+			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 movieWrapper">
+				<div class="well movie">
+					<a href="/myMovies/movie/{{slug}}" class="moreButton btn btn-default btn-md">
+						<span class="glyphicon glyphicon-plus"></span>
+					</a>
+					<div class="movieImg" style="background-image: url('{{image}}')"></div>
+					<div class="movieTitle text-center">
+						{{title}}
+					</div>
+				</div>
+			</div>
+		{{/each}}
+	{{else}}
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center bg-danger emptyCol">
+			Looks like you haven't added any watched movies yet!
+		</div>
+	{{/if}}
+</div>
