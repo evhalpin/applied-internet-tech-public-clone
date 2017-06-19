@@ -1,12 +1,12 @@
 # The Watchlist ###
 
-##Project Description:
+## Project Description:
 
 The Watchlist is a web application that makes recommending movies to friends simpler. A user can create a personal list of films that they have seen and the rate each film with a rating out of 5, and then generate recommendation lists for their friends from those films. These recommendation lists can be shared on facebook (where the shared list can be viewed by anyone, even if they don't have a Watchlist account), or shared through the site (provided that the friend the user is sharing with also has an account on The Watchlist). If the user's friend does have a Watchlist account, they can add movies from their friend's recommendation list to their own list of watched movies, rate them, and then those ratings are visible to the user who shared the list with them. Movie information is pulled from The Movie Database's (TMD) API.
 
 
 
-##Sample documents:
+## Sample documents:
 
 The Movie documents store the information pulled from the TMD API that will be needed by the app. The film's title, director (a Person document), releaseDate, runtime, TMD ID number are all required for each Movie stored, but an image for the film (like a poster), the genre IDs (which come from TMD's API), and the film's tagline are optional. The releaseDate is a Date object and rDateTypes is used to indicate what type of value was fed to the Date object (just a year? a year and the month? the whole date?). If there was no releaseDate in the data sent back by the TMD API, a new Date is created (because  releaseDate is required for each Movie document), but rDateTypes is set to 0 to tell the application to treat this date as fake. Each movie has a ratings field which stores an array of objects consisting of a user's _id and that user's rating. In addition, each Movie has an inList field which holds the slugs of every list the movie is in.
 ```
@@ -67,7 +67,7 @@ var Person = new mongoose.Schema({
 });
 ```
 
-####EXAMPLE:
+#### EXAMPLE:
 ```
 forrestGump = {
 	"title": "Forrest Gump",
@@ -102,7 +102,7 @@ forrestGump = {
 "ratings": [{user: ObjectId('<some other user _id'), rating: 5}]
 ```
 
-##Wireframes:
+## Wireframes:
 Register an account:
 
 ![Alt text](/Documentation/register.png?raw=true "Register")
@@ -153,13 +153,13 @@ A single recommendation list viewed while logged in:
 
 
 
-##Sitemap:
+## Sitemap:
 ![Alt text](/Documentation/sitemap.jpg?raw=true "SiteMap")
 * movie pages are only accessible from the "myMovies" page/subdomain, not from lists or recommendation lists, and these movie pages do not link to any other similar movies' pages 
 
-##User stories:
+## User stories:
 
-####User1
+#### User1
 As a user, named User1, I want to keep track of the movies I've watched so that I can then recommend them to my friends.
 
 As User1 I'd like to create specific lists of movies that I can then recommend to my friends, so I can give them more personalized recommendations and group the movies, rather than recommend each film one-by-one.
@@ -168,7 +168,7 @@ As User1 I'd like to be able to share a recommendation list I've created with a 
 
 As User1 I'd like to be able to see the ratings that my friend with an account on the site gave each movie on the list I sent them, so that I know what they thought of each film.
 ***
-####User2 
+#### User2 
 As a user, named User2, I want to be able to see the list of films recommended to me by User1, so that I can watch them myself.
 		
 As User2, I want to be able to share my rating of the movies recommended with User1, so that they know what I thought of the films.
@@ -177,14 +177,14 @@ As User2, I'd like to be able to add the movies recommended to me to my own list
 
 As User2, I'd like to have the same abilities as User1, because that's only fair as we're both users. :)
 ***
-####Non-user 
+#### Non-user 
 As a non-user friend of User1, I want to be able to see the list of films recommended to me by User1 so that I can watch them myself.
 
 
 
-##Research Topics:
+## Research Topics:
 
-####The Movie Database API
+#### The Movie Database API
 For my project proposal, I said:
 > I will be using this API to pull in all of the required information about each movie that gets stored in someone's list(s). I've chosen to use this API in particular because it will allow me to ensure all movies added are actual movies (or at least, exist within a database that I don't need to validate) and the API has some rating & recommendations features of it's own that I may be able to integrate later on. Also, this API allows people to get developer/non-commercial keys, whereas some other APIs (like the Rotten Tomatoes one), do not.
 > As I've never tried to integrate an API into an application before, this may be tricky to get at first. But the data returned by requests to the API looks pretty easy to handle, so I still think it's manageable. I would estimate 4 points or so for the integration, 5 if I end up struggling more than I expect to.
@@ -194,7 +194,7 @@ The API didn't give me any more trouble than I expected. The only issue that too
 
 
 
-####Facebook sharing
+#### Facebook sharing
 For my project proposal, I said:
 > Users will have the option to share URLs to their recommendation lists on facebook so that un-registered friends can still view the user's lists (though they won't be able to submit their own rating of the film).
 > This doesn't seem too complex, so I think it'll only be 2 points or so.
@@ -205,12 +205,12 @@ I implemented facebook sharing of lists that use a list visible to the public. I
 
 
 
-####Authentication
+#### Authentication
 Although I didn't originally list it as a research topic in my project proposal, I did implement authentication through mongoose (passport) allowing a user to create an account and login and logout of their account. I used Prof. Versoza's example as a guide while implementing authentication. Also, user accounts are used by my web app to share recommendation lists (lists are shared with other users by their usernmame), so I think my implementation of user authentication should count as the 6 point research topic it's listed as in the project requirements.
 
 
 
-####CSS Framework - maybe Bootstrap
+#### CSS Framework - maybe Bootstrap
 For my project proposal, I said:
 > I'd like to be able to customize my theme, but not build it all from scratch, especially because ideally my design would be responsive. Therefore, I'd like to use somesort of CSS framework, though I'm not sure which just yet.
 
